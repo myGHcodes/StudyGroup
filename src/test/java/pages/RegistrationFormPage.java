@@ -3,7 +3,10 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import utilities.BrowserUtilities;
+
+import java.util.List;
 
 public class RegistrationFormPage extends PageBase {
 
@@ -19,7 +22,18 @@ public class RegistrationFormPage extends PageBase {
     @FindBy(xpath = "//small[@data-bv-result='INVALID']")
     private WebElement wrongMsgElement;
 
+    @FindBy(xpath = "//*[@class='form-check-label']")
+    private List<WebElement> listOfProgLangElements;
+
+
+
      // methods
+     public void programmLanguagesIsDisplayed(){
+         for ( WebElement each : listOfProgLangElements) {
+             Assert.assertTrue(each.isDisplayed());
+         }
+     }
+
 
     public boolean messageIsDisplayed(){
         return  wrongMsgElement.isDisplayed();
