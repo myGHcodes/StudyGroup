@@ -3,12 +3,15 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import utilities.BrowserUtilities;
 
 import java.util.List;
 
 public class RegistrationFormPage extends PageBase {
+
+    BrowserUtilities browserUtilities = new BrowserUtilities();
 
 
 
@@ -31,8 +34,23 @@ public class RegistrationFormPage extends PageBase {
     @FindBy(xpath = "(//*[@data-bv-for='firstname'])[2]")
     private WebElement errorMsgElement;
 
+    @FindBy(name = "department")
+    private WebElement departmentElement;
+
+    public void selectTourismOfficeDepartment(){
+        Select blala = new Select(departmentElement);
+        blala.selectByVisibleText("Tourism Office");
+        browserUtilities.wait(20);
+
+    }
+
+
+
 
      // ---------------- methods ---------------
+     public void fullRegistrationForm(){
+         firstNameElement.sendKeys("Thomas");
+     }
 
 
     public void typeOneLetterToFistNameAndCheckIsDisplayed(){

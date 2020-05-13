@@ -32,6 +32,21 @@ public class TestCases extends TestBase {
         registrationFormPage.typeOneLetterToFistNameAndCheckIsDisplayed();
     }
 
+    @Test(testName = "Test Case #4", priority = 4, description = "https://practice-cybertekschool.herokuapp.com/")
+    public void nndnkjdkd() {
+    }
+
+
+    @Test(testName = "Test Case #5", priority = 5, description = "https://practice-cybertekschool.herokuapp.com/")
+    public void fullRegistration() throws InterruptedException {
+        registrationFormPage.clickOnRegistrationFormLink();
+        registrationFormPage.selectTourismOfficeDepartment();
+
+
+
+    }
+
+
 
 
 
