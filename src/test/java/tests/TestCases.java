@@ -26,5 +26,13 @@ public class TestCases extends TestBase {
         registrationFormPage.programmLanguagesIsDisplayed();
     }
 
+    @Test(testName = "Test Case #3", priority = 3, description = "https://practice-cybertekschool.herokuapp.com/")
+    public void onlyOneLetterErrorIsDisplayed() {
+        registrationFormPage.clickOnRegistrationFormLink();
+        registrationFormPage.typeOneLetterToFistNameAndCheckIsDisplayed();
+    }
+
+
+
 
 }

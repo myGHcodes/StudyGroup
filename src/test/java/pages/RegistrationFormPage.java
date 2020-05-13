@@ -25,9 +25,23 @@ public class RegistrationFormPage extends PageBase {
     @FindBy(xpath = "//*[@class='form-check-label']")
     private List<WebElement> listOfProgLangElements;
 
+    @FindBy(xpath = "//input[@name='firstname']")
+    private WebElement firstNameElement;
+
+    @FindBy(xpath = "(//*[@data-bv-for='firstname'])[2]")
+    private WebElement errorMsgElement;
 
 
-     // methods
+     // ---------------- methods ---------------
+
+
+    public void typeOneLetterToFistNameAndCheckIsDisplayed(){
+        firstNameElement.sendKeys("t");
+        Assert.assertTrue(errorMsgElement.isDisplayed());
+        Assert.assertEquals(errorMsgElement.getText(), "first name must be more than 2 and less than 64 characters long");
+    }
+
+
      public void programmLanguagesIsDisplayed(){
          for ( WebElement each : listOfProgLangElements) {
              Assert.assertTrue(each.isDisplayed());
