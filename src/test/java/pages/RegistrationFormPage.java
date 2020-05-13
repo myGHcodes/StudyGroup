@@ -40,7 +40,7 @@ public class RegistrationFormPage extends PageBase {
     public void selectTourismOfficeDepartment(){
         Select blala = new Select(departmentElement);
         blala.selectByVisibleText("Tourism Office");
-        browserUtilities.wait(20);
+
 
     }
 

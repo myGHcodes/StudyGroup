@@ -10,6 +10,7 @@ public class TestCases extends TestBase {
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
     BrowserUtilities browserUtilities = new BrowserUtilities();
 
+
     @Test(testName = "Test Case #1", priority = 1, description = "https://practice-cybertekschool.herokuapp.com/")
     public void wrongDOB()  {
         registrationFormPage.clickOnRegistrationFormLink();
@@ -41,6 +42,9 @@ public class TestCases extends TestBase {
     public void fullRegistration() throws InterruptedException {
         registrationFormPage.clickOnRegistrationFormLink();
         registrationFormPage.selectTourismOfficeDepartment();
+        browserUtilities.wait(5);
+
+
 
 
 
