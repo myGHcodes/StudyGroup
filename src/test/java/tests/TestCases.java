@@ -2,7 +2,9 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.FakeMailPage;
 import pages.RegistrationFormPage;
+import pages.SignUpForMailingListPage;
 import utilities.BrowserUtilities;
 
 public class TestCases extends TestBase {
@@ -42,6 +44,38 @@ public class TestCases extends TestBase {
     public void fullRegistration() throws InterruptedException {
         registrationFormPage.clickOnRegistrationFormLink();
         registrationFormPage.fullRegistration();
+    }
+
+    @Test(testName = "Test Case #6", priority = 6, description = "https://www.fakemail.net/")
+    public void mailList() {
+        FakeMailPage fakeMailPage = new FakeMailPage();
+        String email = fakeMailPage.emailTextFromFakeMail();
+        browserUtilities.goToURL("https://practice-cybertekschool.herokuapp.com/");
+
+        SignUpForMailingListPage maillingListPage = new SignUpForMailingListPage();
+
+
+        maillingListPage.clickOnSignUpMailingList();
+        maillingListPage.emailInputElement.sendKeys(email);
+        maillingListPage.clickOnSignUpButton();
+        maillingListPage.checkTextAfterSignUp();
+
+        browserUtilities.goToURL("https://www.fakemail.net/");
+
+        maillingListPage.verifyEmailCameFrom();
+        maillingListPage.clickOnEmailThatCameFromCybertek();
+
+        maillingListPage.verifyEmailFromCybertekAfterClicking();
+        maillingListPage.verifySubject();
+
+        // 1 - I inspected element (I founded element) using xpath, css, id .....
+        // 2 - I saved as @FindBy(using xpath, css, id) and I named as blablaElement in Pages Folder
+        // 3 - I wrote the method (click, sendKeys, Verify, check, compare)
+        // 4 - Now in Test folder I'm calling methods
+
+
+
+
     }
 
 

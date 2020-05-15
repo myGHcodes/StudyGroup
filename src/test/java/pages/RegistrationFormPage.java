@@ -14,7 +14,6 @@ public class RegistrationFormPage extends PageBase {
     BrowserUtilities browserUtilities = new BrowserUtilities();
 
 
-
     // elements
     @FindBy(linkText = "Registration Form")
     private WebElement registrationFormLink;
@@ -66,20 +65,20 @@ public class RegistrationFormPage extends PageBase {
     @FindBy(name = "job_title")
     private WebElement jobTitleElement;
 
-    @FindBy(id= "inlineCheckbox2")
+    @FindBy(id = "inlineCheckbox2")
     private WebElement javaLanguageElement;
 
-    @FindBy(id="inlineCheckbox3")
+    @FindBy(id = "inlineCheckbox3")
     private WebElement javaScriptLanguageElement;
 
-    @FindBy(id="wooden_spoon")
+    @FindBy(id = "wooden_spoon")
     private WebElement signUpButtonElement;
 
     @FindBy(tagName = "p")  //div/p
     private WebElement successMessage;
 
 
-    public void fullRegistration(){
+    public void fullRegistration() {
         firstNameElement.sendKeys("Elizabeth");
         lastnameElement.sendKeys("Thomas");
         usernameElement.sendKeys("eThomas");
@@ -96,64 +95,61 @@ public class RegistrationFormPage extends PageBase {
         anyName.selectByIndex(1);
         anyName.getFirstSelectedOption();
         */
-       Select select = new Select(jobTitleElement);
-       select.selectByIndex(2); // manager
+        Select select = new Select(jobTitleElement);
+        select.selectByIndex(2); // manager
         javaLanguageElement.click();
         javaScriptLanguageElement.click();
 
         signUpButtonElement.click();
 
-        // a href -- LInkText, PartialLInkText
+        // a href -- LinkText, PartialLinkText
 
         Assert.assertTrue(successMessage.isDisplayed());  // return true
         Assert.assertEquals(successMessage.getText(), "You've successfully completed registration!");
         // Assert.assertFalse(successMessage.isDisplayed()); // return false it means not displayed
     }
 
-    public void selectTourismOfficeDepartment(){
+    public void selectTourismOfficeDepartment() {
         Select blala = new Select(departmentElement);
         blala.selectByVisibleText("Tourism Office");
     }
 
 
+    // ---------------- methods ---------------
 
 
-     // ---------------- methods ---------------
-
-
-    public void typeOneLetterToFistNameAndCheckIsDisplayed(){
+    public void typeOneLetterToFistNameAndCheckIsDisplayed() {
         firstNameElement.sendKeys("t");
         Assert.assertTrue(errorMsgElement.isDisplayed());
         Assert.assertEquals(errorMsgElement.getText(), "first name must be more than 2 and less than 64 characters long");
     }
 
 
-     public void programmLanguagesIsDisplayed(){
-         for ( WebElement each : listOfProgLangElements) {
-             Assert.assertTrue(each.isDisplayed());
-         }
-     }
-
-
-    public boolean messageIsDisplayed(){
-        return  wrongMsgElement.isDisplayed();
+    public void programmLanguagesIsDisplayed() {
+        for (WebElement each : listOfProgLangElements) {
+            Assert.assertTrue(each.isDisplayed());
+        }
     }
 
 
-    public String message(){
+    public boolean messageIsDisplayed() {
+        return wrongMsgElement.isDisplayed();
+    }
+
+
+    public String message() {
         return wrongMsgElement.getText();
     }
 
 
-    public void typeDOB(){
+    public void typeDOB() {
         dobElement.sendKeys("wrong_dob");
 
     }
 
-    public void clickOnRegistrationFormLink(){
+    public void clickOnRegistrationFormLink() {
         registrationFormLink.click();
     }
-
 
 
 }
