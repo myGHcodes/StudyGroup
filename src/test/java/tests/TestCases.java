@@ -41,13 +41,7 @@ public class TestCases extends TestBase {
     @Test(testName = "Test Case #5", priority = 5, description = "https://practice-cybertekschool.herokuapp.com/")
     public void fullRegistration() throws InterruptedException {
         registrationFormPage.clickOnRegistrationFormLink();
-        registrationFormPage.selectTourismOfficeDepartment();
-        browserUtilities.wait(5);
-
-
-
-
-
+        registrationFormPage.fullRegistration();
     }
 
 

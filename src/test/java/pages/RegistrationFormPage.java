@@ -37,20 +37,88 @@ public class RegistrationFormPage extends PageBase {
     @FindBy(name = "department")
     private WebElement departmentElement;
 
+    @FindBy(xpath = "//input[@name='lastname']")
+    private WebElement lastnameElement;
+
+    @FindBy(xpath = "//input[@name='username']")
+    private WebElement usernameElement;
+
+    @FindBy(xpath = "//input[@placeholder='email@email.com']")
+    private WebElement emailElement;
+
+    //      input[type='password'] ---> this is css element (no @ , no //) faster than xpath
+    // -> //input[@type='password']  ---> this is xpath (it has //, it has @)
+    //  5 avenue -->css
+    // 5th avenue --> xpath
+
+    @FindBy(css = "input[type='password']")
+    private WebElement passwordElement;
+
+    @FindBy(xpath = "(//input[@class='form-control'])[6]")
+    private WebElement phoneNumberElement;
+
+    @FindBy(xpath = "//input[@value='female']")
+    private WebElement genderFemaleElement;
+    // to see diffrent locators press ctrl + space
+    // className, xpath, linkText, css, id, class, partialLinkText, tagname
+    // @FindBy()
+
+    @FindBy(name = "job_title")
+    private WebElement jobTitleElement;
+
+    @FindBy(id= "inlineCheckbox2")
+    private WebElement javaLanguageElement;
+
+    @FindBy(id="inlineCheckbox3")
+    private WebElement javaScriptLanguageElement;
+
+    @FindBy(id="wooden_spoon")
+    private WebElement signUpButtonElement;
+
+    @FindBy(tagName = "p")  //div/p
+    private WebElement successMessage;
+
+
+    public void fullRegistration(){
+        firstNameElement.sendKeys("Elizabeth");
+        lastnameElement.sendKeys("Thomas");
+        usernameElement.sendKeys("eThomas");
+        emailElement.sendKeys("ethosmas@gmail.com");
+        passwordElement.sendKeys("12345678e");
+        phoneNumberElement.sendKeys("123-456-7899");
+        genderFemaleElement.click();
+        // dob -> date of birth
+        dobElement.sendKeys("05/14/2020");
+        // when you see select in element understand it as Dropdown
+        Select anyName = new Select(departmentElement);
+        anyName.selectByVisibleText("Department of Engineering");
+        /*
+        anyName.selectByIndex(1);
+        anyName.getFirstSelectedOption();
+        */
+       Select select = new Select(jobTitleElement);
+       select.selectByIndex(2); // manager
+        javaLanguageElement.click();
+        javaScriptLanguageElement.click();
+
+        signUpButtonElement.click();
+
+        // a href -- LInkText, PartialLInkText
+
+        Assert.assertTrue(successMessage.isDisplayed());  // return true
+        Assert.assertEquals(successMessage.getText(), "You've successfully completed registration!");
+        // Assert.assertFalse(successMessage.isDisplayed()); // return false it means not displayed
+    }
+
     public void selectTourismOfficeDepartment(){
         Select blala = new Select(departmentElement);
         blala.selectByVisibleText("Tourism Office");
-
-
     }
 
 
 
 
      // ---------------- methods ---------------
-     public void fullRegistrationForm(){
-         firstNameElement.sendKeys("Thomas");
-     }
 
 
     public void typeOneLetterToFistNameAndCheckIsDisplayed(){
