@@ -72,11 +72,38 @@ public class TestCases extends TestBase {
         // 2 - I saved as @FindBy(using xpath, css, id) and I named as blablaElement in Pages Folder
         // 3 - I wrote the method (click, sendKeys, Verify, check, compare)
         // 4 - Now in Test folder I'm calling methods
-
-
-
-
     }
+
+         // txt file means it is a text file on windows --> notepad
+        //                              on mac --> TextEdit
+
+//================================== FORK =========================================
+    // if you Fork it you will have it on your own Github
+    // it mean you have on Github and you don't need to type->> git init
+    // because it is on Github already
+    // if you changed something you just push
+    // how to push changes  --->
+    //    git add .
+    //    git commit -m "first commit"
+    //    git push
+
+//============================ CLONE ========================================================
+    // if you Clone it you will have it on IntellIJ -> this is the steps ->(file -> new -> project from version control)
+    // BUT you can not push to Github because  Github doesn't know about this project
+    // then you have to open new repository on Github
+    //  name it the repository name --> public
+   /*
+    on INtellIj -->terminal --> type this steps
+    git init
+    git add .
+    git commit -m "first commit"
+    git remote add origin https://github.com/myGHcodes/rerertrttyy.git---> link is example
+    git push -u origin master
+    */
+
+
+
+
 
 
 
