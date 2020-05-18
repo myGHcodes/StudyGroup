@@ -11,6 +11,9 @@ public class Driver {
     private static WebDriver driver;
     private static String browser = "chrome";
 
+    // WHY WE PUT EMPTY CONSTRUCTOR
+    // WE WANT TO USE ONLY DRIVER
+    //
     private Driver() {
 
     }

@@ -2,9 +2,7 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.FakeMailPage;
-import pages.RegistrationFormPage;
-import pages.SignUpForMailingListPage;
+import pages.*;
 import utilities.BrowserUtilities;
 
 public class TestCases extends TestBase {
@@ -75,7 +73,7 @@ public class TestCases extends TestBase {
     }
 
          // txt file means it is a text file on windows --> notepad
-        //                              on mac --> TextEdit
+        //                                   on mac --> TextEdit
 
 //================================== FORK =========================================
     // if you Fork it you will have it on your own Github
@@ -103,6 +101,14 @@ public class TestCases extends TestBase {
     */
 
 
+
+
+    @Test(testName = "upload file", description = "https://practice-cybertekschool.herokuapp.com/")
+    public void task7(){
+        FileUploadPage anyName = new FileUploadPage();
+        TempPage anyNames = new TempPage();
+
+    }
 
 
 
