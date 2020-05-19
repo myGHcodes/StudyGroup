@@ -10,7 +10,10 @@ public class FileUploadPage extends PageBase {
      // when you make variable or elements anything private it means
     // ENCAPSULATION
 
-    @FindBy(id = "file-upload")
+    @FindBy(linkText ="File Upload")
+    private WebElement fileUploadLinkElement;
+
+    @FindBy(id ="file-upload")
     private WebElement chooseFileElement;
    /*
    // (id="")
@@ -23,34 +26,43 @@ public class FileUploadPage extends PageBase {
       //h3   -->xpath
       //div[@class='example']//h3
     */
-
     @FindBy(id="file-submit")
     private WebElement uploadButtonElement;
 
     @FindBy(tagName = "h3")
     private WebElement fileUploadedTextElement;
 
+    @FindBy(id="uploaded-files")
+    private WebElement uploadedFileNameElement;
 
-    public void clickUploadFileButtonAndVerifyText(){
+
+
+
+    public void clickUploadFileButtonAndVerifyTextAndNameFileTextIsDisplayed(){
         uploadButtonElement.click();
+       Assert.assertEquals(fileUploadedTextElement.getText(), "File Uploaded!");
+       // when on the requirement it is asking is displayed we use AssertTrue or AssertFalse
+       Assert.assertTrue(uploadedFileNameElement.isDisplayed());
 
 
-
-
-
-        // this one is one way of verifying text
-        if (fileUploadedTextElement.isDisplayed()){
+        /*// this one is one way of verifying text
+        if (fileUploadedTextElement.getText().equals("File Uploaded!")){
             System.out.println("File Uploaded! is displayed");
         } else {
             System.out.println("File Uploaded! NOT displayed");
         }
-        // output/result if it is displayed it is gonna show this text "File Uploaded! is displayed"
+        // output/result if it is displayed it is gonna show this text "File Uploaded! is displayed"*/
 
     }
 
     public void clickOnChooseFileButtonAndUploadFile(){
         chooseFileElement.click();
         chooseFileElement.sendKeys("C:\\Users\\Ika\\Desktop\\WikipideaText.txt");
+    }
+
+
+    public void clickOnFileUploadLink(){
+        fileUploadLinkElement.click();
     }
 
 }

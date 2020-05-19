@@ -108,8 +108,10 @@ public class TestCases extends TestBase {
 
     @Test(testName = "upload file", description = "https://practice-cybertekschool.herokuapp.com/")
     public void task7(){
-
-
+        FileUploadPage fileUploadPage = new FileUploadPage();
+        fileUploadPage.clickOnFileUploadLink();
+        fileUploadPage.clickOnChooseFileButtonAndUploadFile();
+        fileUploadPage.clickUploadFileButtonAndVerifyTextAndNameFileTextIsDisplayed();
     }
 
 
