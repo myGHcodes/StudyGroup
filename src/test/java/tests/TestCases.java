@@ -2,9 +2,7 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.FakeMailPage;
-import pages.RegistrationFormPage;
-import pages.SignUpForMailingListPage;
+import pages.*;
 import utilities.BrowserUtilities;
 
 public class TestCases extends TestBase {
@@ -72,8 +70,50 @@ public class TestCases extends TestBase {
         // 2 - I saved as @FindBy(using xpath, css, id) and I named as blablaElement in Pages Folder
         // 3 - I wrote the method (click, sendKeys, Verify, check, compare)
         // 4 - Now in Test folder I'm calling methods
+    }
+
+
+
+
+         // txt file means it is a text file on windows --> notepad
+        //                                   on mac --> TextEdit
+
+//================================== FORK =========================================
+    // if you Fork it you will have it on your own Github
+    // you will have it on IntellIJ -> this is the steps ->(file -> new -> project from version control)
+    // it mean you have on Github and you don't need to type->> git init
+    // because it is on Github located already --->  git pull --> means get new changes
+    // if you changed something you just push
+    // how to push changes  --->
+    //    git add .
+    //    git commit -m "first commit"
+    //    git push
+
+//============================ CLONE ========================================================
+    // if you Clone it you will have it on IntellIJ -> this is the steps ->(file -> new -> project from version control)
+    // BUT you can not push to Github because  Github doesn't know about this project
+    // then you have to open new repository on Github
+    //  name it the repository name --> public
+   /*
+    on IntellIj --> terminal --> type this steps
+    git init
+    git add .
+    git commit -m "first commit"
+    git remote add origin https://github.com/myGHcodes/rerertrttyy.git---> link is example
+    git push -u origin master
+    */
+
+
+
+
+    @Test(testName = "upload file", description = "https://practice-cybertekschool.herokuapp.com/")
+    public void task7(){
+
 
     }
+
+
+
 
 
 

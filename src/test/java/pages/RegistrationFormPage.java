@@ -53,6 +53,7 @@ public class RegistrationFormPage extends PageBase {
     @FindBy(css = "input[type='password']")
     private WebElement passwordElement;
 
+    // //input[@placeholder='571-000-0000']
     @FindBy(xpath = "(//input[@class='form-control'])[6]")
     private WebElement phoneNumberElement;
 
@@ -84,7 +85,7 @@ public class RegistrationFormPage extends PageBase {
         usernameElement.sendKeys("eThomas");
         emailElement.sendKeys("ethosmas@gmail.com");
         passwordElement.sendKeys("12345678e");
-        phoneNumberElement.sendKeys("123-456-7899");
+       phoneNumberElement.sendKeys("123-456-7896");
         genderFemaleElement.click();
         // dob -> date of birth
         dobElement.sendKeys("05/14/2020");

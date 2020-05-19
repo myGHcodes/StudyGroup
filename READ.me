@@ -1,0 +1,18 @@
+ // output/result if it is displayed it is gonna show --> true(yes)
+        // hard Assert
+        Assert.assertTrue(fileUploadedTextElement.isDisplayed()); // passed
+        Assert.assertTrue(fileUploadedTextElement.isDisplayed()); // passed
+        Assert.assertTrue(fileUploadedTextElement.isDisplayed()); // failed --> STOPPED didn't
+        Assert.assertTrue(fileUploadedTextElement.isDisplayed());
+        Assert.assertTrue(fileUploadedTextElement.isDisplayed());
+        Assert.assertTrue(fileUploadedTextElement.isDisplayed());
+        Assert.assertTrue(fileUploadedTextElement.isDisplayed());
+
+        // softAssert
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(fileUploadedTextElement.isDisplayed()); //passed
+        softAssert.assertTrue(fileUploadedTextElement.isDisplayed()); //passed
+        softAssert.assertTrue(fileUploadedTextElement.isDisplayed()); //failed -->> keep GOING it
+        softAssert.assertTrue(fileUploadedTextElement.isDisplayed()); //passed
+        softAssert.assertTrue(fileUploadedTextElement.isDisplayed()); //passed
+        softAssert.assertAll();
