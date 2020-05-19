@@ -73,9 +73,6 @@ public class TestCases extends TestBase {
         // 3 - I wrote the method (click, sendKeys, Verify, check, compare)
         // 4 - Now in Test folder I'm calling methods
 
-
-
-
     }
 
 
