@@ -24,6 +24,8 @@ public class RegistrationFormPage extends PageBase {
     @FindBy(xpath = "//small[@data-bv-result='INVALID']")
     private WebElement wrongMsgElement;
 
+    //               // * select everything
+    //               // input
     @FindBy(xpath = "//*[@class='form-check-label']")
     private List<WebElement> listOfProgLangElements;
 

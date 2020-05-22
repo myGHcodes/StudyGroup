@@ -1,18 +1,22 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.*;
 import utilities.BrowserUtilities;
 
 public class TestCases extends TestBase {
 
-    RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+
     BrowserUtilities browserUtilities = new BrowserUtilities();
 
 
     @Test(testName = "Test Case #1", priority = 1, description = "https://practice-cybertekschool.herokuapp.com/")
-    public void wrongDOB()  {
+    public void wrongDOB() {
+        RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+
         registrationFormPage.clickOnRegistrationFormLink();
         registrationFormPage.typeDOB();
         browserUtilities.wait(3);
@@ -23,12 +27,16 @@ public class TestCases extends TestBase {
 
     @Test(testName = "Test Case #2", priority = 2, description = "https://practice-cybertekschool.herokuapp.com/")
     public void languagesAreDisplayed() {
+        RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+
         registrationFormPage.clickOnRegistrationFormLink();
         registrationFormPage.programmLanguagesIsDisplayed();
     }
 
     @Test(testName = "Test Case #3", priority = 3, description = "https://practice-cybertekschool.herokuapp.com/")
     public void onlyOneLetterErrorIsDisplayed() {
+        RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+
         registrationFormPage.clickOnRegistrationFormLink();
         registrationFormPage.typeOneLetterToFistNameAndCheckIsDisplayed();
     }
@@ -40,6 +48,8 @@ public class TestCases extends TestBase {
 
     @Test(testName = "Test Case #5", priority = 5, description = "https://practice-cybertekschool.herokuapp.com/")
     public void fullRegistration() throws InterruptedException {
+        RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+
         registrationFormPage.clickOnRegistrationFormLink();
         registrationFormPage.fullRegistration();
     }
@@ -73,10 +83,8 @@ public class TestCases extends TestBase {
     }
 
 
-
-
-         // txt file means it is a text file on windows --> notepad
-        //                                   on mac --> TextEdit
+    // txt file means it is a text file on windows --> notepad
+    //                                   on mac --> TextEdit
 
 //================================== FORK =========================================
     // if you Fork it you will have it on your own Github
@@ -104,9 +112,7 @@ public class TestCases extends TestBase {
     */
 
 
-
-
-    @Test(testName = "upload file", description = "https://practice-cybertekschool.herokuapp.com/")
+    @Test(testName = "Test Case #7", priority = 7, description = "https://practice-cybertekschool.herokuapp.com/")
     public void task7() throws InterruptedException {
         FileUploadPage fileUploadPage = new FileUploadPage();
         fileUploadPage.clickOnFileUploadLink();
@@ -114,10 +120,34 @@ public class TestCases extends TestBase {
         fileUploadPage.clickUploadFileButtonAndVerifyTextAndNameFileTextIsDisplayed();
     }
 
+    @Test(testName = "Test Case #8", priority = 8, description = "https://practice-cybertekschool.herokuapp.com/")
+    public void task8() {
+        // if you want access the Methods OR Elements in specific page
+        // you have to create object of that page
+        AutocompletePage autocompletePage = new AutocompletePage();
+        autocompletePage.autocompleteActions();
+    }
 
 
+    @Test(testName = "task from 9 -12", description = "https://practice-cybertekschool.herokuapp.com/",
+            priority =9 , dataProvider = "testFrom-9-12", dataProviderClass = StatusCodesPage.class)
+    public void tas9to12(String numbers, String message){
+        StatusCodesPage statusCodesPage = new StatusCodesPage();
+        statusCodesPage.clickOnStatusCodesLink();
+        driver.findElement(By.linkText(numbers)).click();
+        Assert.assertTrue(statusCodesPage.textElement.getText().contains(message));
 
+    }
 
+    /*@DataProvider(name = "testFrom-9-12")
+    public static Object[][] createData() {
+        return new Object[][]{
+                {"200", "This page returned a 200 status code."},
+                {"301", "This page returned a 301 status code."},
+                {"404", "This page returned a 404 status code."},
+                {"500", "This page returned a 500 status code."},
+        };
+    }*/
 
 
 
