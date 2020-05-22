@@ -36,8 +36,6 @@ public class FileUploadPage extends PageBase {
     private WebElement uploadedFileNameElement;
 
 
-
-
     public void clickUploadFileButtonAndVerifyTextAndNameFileTextIsDisplayed(){
         uploadButtonElement.click();
        Assert.assertEquals(fileUploadedTextElement.getText(), "File Uploaded!");
@@ -55,9 +53,12 @@ public class FileUploadPage extends PageBase {
 
     }
 
-    public void clickOnChooseFileButtonAndUploadFile(){
-        chooseFileElement.click();
+    public void UploadFile() throws InterruptedException {
+        // I commented out this one because no need to click then send keys
+       // chooseFileElement.click();
+        Thread.sleep(3000);
         chooseFileElement.sendKeys("C:\\Users\\Ika\\Desktop\\WikipideaText.txt");
+
     }
 
 

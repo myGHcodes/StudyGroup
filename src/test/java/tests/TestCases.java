@@ -107,10 +107,10 @@ public class TestCases extends TestBase {
 
 
     @Test(testName = "upload file", description = "https://practice-cybertekschool.herokuapp.com/")
-    public void task7(){
+    public void task7() throws InterruptedException {
         FileUploadPage fileUploadPage = new FileUploadPage();
         fileUploadPage.clickOnFileUploadLink();
-        fileUploadPage.clickOnChooseFileButtonAndUploadFile();
+        fileUploadPage.UploadFile();
         fileUploadPage.clickUploadFileButtonAndVerifyTextAndNameFileTextIsDisplayed();
     }
 
